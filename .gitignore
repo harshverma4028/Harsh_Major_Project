@@ -1,0 +1,146 @@
+# ===========================
+# Python
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ===========================
+# Virtual Environments
+# ===========================
+.venv/
+.venv_old/
+venv/
+ENV/
+env/
+
+# ===========================
+# IDE / Editors
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ===========================
+# OS Generated Files
+# ===========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===========================
+# Environment Variables / Secrets
+# ===========================
+.env
+.env.local
+.env.*.local
+LLM_CONFIG.env
+
+# ===========================
+# Data Files (large)
+# ===========================
+*.csv
+*.parquet
+*.h5
+*.hdf5
+
+# ===========================
+# Model Files (large binaries)
+# ===========================
+*.pt
+*.pth
+*.onnx
+*.pkl
+*.joblib
+
+# ===========================
+# Ngrok (downloaded binaries)
+# ===========================
+ngrok.exe
+ngrok.zip
+ngrok
+
+# ===========================
+# Output & Generated Files
+# ===========================
+outputs/*
+!outputs/.gitkeep
+*.log
+prediction_vs_actual.png
+
+# ===========================
+# Runtime Data / JSON Logs
+# ===========================
+experiment_log.json
+sentiment_history.json
+predictions_log.json
+predictions_db.json
+users.json
+server.log
+
+# ===========================
+# Reports
+# ===========================
+reports/*.pdf
+
+# ===========================
+# Notebooks
+# ===========================
+.ipynb_checkpoints/
+
+# ===========================
+# Testing
+# ===========================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ===========================
+# Logs Directory
+# ===========================
+logs/
+
+# ===========================
+# Temporary Files
+# ===========================
+tmp/
+temp/
+*.tmp
+
+# ===========================
+# Gemini / AI Assistant
+# ===========================
+.gemini/
