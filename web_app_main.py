@@ -654,7 +654,7 @@ async def home():
                     const percentChange = ((change / currentPrice) * 100).toFixed(2);
 
                     // Make API call
-                    const response = await fetch(`\${API_BASE}/api/ai/analyze`, {
+                    const response = await fetch(`${API_BASE}/api/ai/analyze`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -675,42 +675,42 @@ async def home():
                     const target = analysis.signals?.price_target || predictedPrice;
                     const stopLoss = analysis.signals?.stop_loss || (currentPrice * 0.95);
 
-                    document.getElementById('predictionContent').innerHTML = \`
+                    document.getElementById('predictionContent').innerHTML = `
                         <div class="price-display">
-                            <div class="price">\$\${target.toFixed(2)}</div>
+                            <div class="price">$$${target.toFixed(2)}</div>
                             <div class="currency">USD</div>
                         </div>
-                        <div class="change \${percentChange >= 0 ? 'positive' : 'negative'}">
-                            <span>\${percentChange >= 0 ? '▲' : '▼'} \${Math.abs(percentChange)}%</span>
+                        <div class="change ${percentChange >= 0 ? 'positive' : 'negative'}">
+                            <span>${percentChange >= 0 ? '▲' : '▼'} ${Math.abs(percentChange)}%</span>
                         </div>
                         <div style="margin-top: 20px; color: #aaa;">
-                            <div><strong>Entry Price:</strong> \$\${currentPrice.toFixed(2)}</div>
-                            <div style="margin-top: 10px;"><strong>Target Price:</strong> \$\${target.toFixed(2)}</div>
-                            <div style="margin-top: 10px;"><strong>Stop Loss:</strong> \$\${stopLoss.toFixed(2)}</div>
+                            <div><strong>Entry Price:</strong> $$${currentPrice.toFixed(2)}</div>
+                            <div style="margin-top: 10px;"><strong>Target Price:</strong> $$${target.toFixed(2)}</div>
+                            <div style="margin-top: 10px;"><strong>Stop Loss:</strong> $$${stopLoss.toFixed(2)}</div>
                         </div>
-                    \`;
+                    `;
 
                     // Display Signal
                     const signalClass = signal.toLowerCase();
-                    document.getElementById('signalContent').innerHTML = \`
+                    document.getElementById('signalContent').innerHTML = `
                         <div class="signal-box">
                             <div class="signal-label">Recommended Action</div>
-                            <div class="signal \${signalClass}">\${signal}</div>
+                            <div class="signal ${signalClass}">${signal}</div>
                             <div style="margin-top: 15px; color: #aaa; font-size: 0.9em;">
                                 Risk/Reward Ratio: 1:2.0<br>
-                                Timeframe: \${period} day(s)<br>
-                                Confidence: \${(confidence * 100).toFixed(0)}%
+                                Timeframe: ${period} day(s)<br>
+                                Confidence: ${(confidence * 100).toFixed(0)}%
                             </div>
                         </div>
-                    \`;
+                    `;
 
                     // Display Metrics
-                    document.getElementById('metricConfidence').textContent = \`\${(confidence * 100).toFixed(0)}%\`;
+                    document.getElementById('metricConfidence').textContent = `${(confidence * 100).toFixed(0)}%`;
                     document.getElementById('metricRisk').textContent = 'MEDIUM';
-                    document.getElementById('metricTechnical').textContent = \`\${(Math.random() * 50 + 50).toFixed(0)}/100\`;
-                    document.getElementById('metricWinProb').textContent = \`\${(Math.random() * 20 + 60).toFixed(0)}%\`;
+                    document.getElementById('metricTechnical').textContent = `${(Math.random() * 50 + 50).toFixed(0)}/100`;
+                    document.getElementById('metricWinProb').textContent = `${(Math.random() * 20 + 60).toFixed(0)}%`;
 
-                    document.getElementById('lastUpdated').textContent = \`Last updated: \${new Date().toLocaleTimeString()}\`;
+                    document.getElementById('lastUpdated').textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
                     document.getElementById('statusText').textContent = 'Connected & Ready';
 
                 } catch (error) {
@@ -726,21 +726,21 @@ async def home():
                 document.getElementById('predictionContent').innerHTML = '<div class="loading"><div class="spinner"></div>Analyzing sentiment from news...</div>';
 
                 try {
-                    const response = await fetch(\`\${API_BASE}/api/ai/chat\`, {
+                    const response = await fetch(`${API_BASE}/api/ai/chat`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ message: \`What is the market sentiment for \${company}?\` })
+                        body: JSON.stringify({ message: `What is the market sentiment for ${company}?` })
                     });
 
                     if (response.ok) {
                         const data = await response.json();
                         const sentiment = data.response || data.data || 'Neutral sentiment detected';
-                        document.getElementById('predictionContent').innerHTML = \`
+                        document.getElementById('predictionContent').innerHTML = `
                             <div style="color: #aaa; line-height: 1.6;">
                                 <strong>Market Sentiment Analysis:</strong><br><br>
-                                \${sentiment}
+                                ${sentiment}
                             </div>
-                        \`;
+                        `;
                     }
                 } catch (error) {
                     document.getElementById('errorMessage').textContent = '❌ Error: ' + error.message;
